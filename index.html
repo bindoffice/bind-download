@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a1533">
+  <meta name="description" content="BindOffice 官方下载中心 —— 高效邮箱与高清视频会议应用，支持 Android 与 iOS，扫码即刻下载。">
+  <title>BindOffice 下载中心 | 邮箱 &amp; 会议</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='45' font-size='36' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 顶部滚动进度条 -->
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+  <!-- 背景装饰：网格 + 光晕 -->
+  <div class="bg-decor" aria-hidden="true">
+    <div class="grid-overlay"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- 头部导航 -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="BindOffice 首页" data-i18n-attr="aria-label" data-i18n-attr-key="brand-aria">
+        <span class="brand-logo">B</span>
+        <span class="brand-name">Bind<span>Office</span></span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="#apps" data-i18n="nav-apps">应用下载</a>
+        <a href="#mail" data-i18n="nav-mail">邮箱</a>
+        <a href="#meet" data-i18n="nav-meet">会议</a>
+        <button class="lang-switch" id="langSwitch" type="button" aria-label="切换到英文">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero 首屏 -->
+    <section class="hero">
+      <div class="container">
+        <p class="hero-badge"><span class="badge-dot"></span><span data-i18n="hero-badge">官方下载中心 · 安全快速</span></p>
+        <h1 class="hero-title" data-i18n="hero-title" data-i18n-html>高效办公，从 <span class="gradient-text">BindOffice</span> 开始</h1>
+        <p class="hero-sub" data-i18n="hero-sub" data-i18n-html>一个账号，邮箱与会议一站式搞定。<br>极速收发、高清音视频，让团队协作更简单。</p>
+        <div class="hero-actions">
+          <a href="#apps" class="btn btn-primary">
+            <span data-i18n="hero-download">立即下载</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          </a>
+          <a href="#apps" class="btn btn-ghost" data-i18n="hero-browse">浏览应用</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">99.99%</span><span class="stat-label" data-i18n="stat-uptime">服务可用性</span></div>
+          <div class="stat"><span class="stat-num">&lt;200ms</span><span class="stat-label" data-i18n="stat-response">平均响应</span></div>
+          <div class="stat"><span class="stat-num">7×24</span><span class="stat-label" data-i18n="stat-security">安全保障</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 应用下载 -->
+    <section id="apps" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="sec-apps-title">选择你的应用</h2>
+          <p data-i18n="sec-apps-sub">支持 Android 与 iOS，扫码或点击按钮即可下载</p>
+        </div>
+
+        <div class="apps-grid">
+
+          <!-- BindMail 邮箱 -->
+          <article id="mail" class="app-card reveal">
+            <div class="app-head">
+              <div class="app-icon mail">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <h3 class="app-name" data-i18n="mail-name">BindMail 邮箱</h3>
+                <p class="app-ver" data-i18n="mail-ver">极速 · 安全 · 智能邮件客户端</p>
+              </div>
+            </div>
+            <p class="app-desc" data-i18n="mail-desc">多账号统一管理，智能分类，重要邮件实时提醒。垃圾邮件零打扰，让每一封邮件都更快到达。</p>
+            <ul class="app-features">
+              <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mail-f1">多账号聚合 · 一键切换</span></li>
+              <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mail-f2">智能分类 · 重要邮件提醒</span></li>
+              <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="mail-f3">智能垃圾过滤 · 零打扰</span></li>
+            </ul>
+            <div class="app-downloads">
+              <div class="btn-row">
+                <a class="btn btn-download android" data-app-link="mail" data-platform="android" target="_blank" rel="noopener">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592c.2337-.4048.0974-.9188-.3054-1.1534-.4053-.2346-.9186-.0964-1.1524.3056l-2.0138 3.4909c-1.7848-.8142-3.8556-.8142-5.6404 0L8.5528 5.0145c-.2338-.402-.7471-.5401-1.1524-.3056-.4028.2346-.5391.7486-.3054 1.1534l1.9973 3.4592c-1.5398 1.2404-2.5293 3.111-2.5293 5.2005v.022c0 .6434.5204 1.166 1.1633 1.166h11.5482c.643 0 1.1633-.5226 1.1633-1.166v-.022c0-2.0895-.9895-3.9601-2.5292-5.2004"/></svg>
+                  <span data-i18n="android-download">Android 下载</span>
+                </a>
+                <a class="btn btn-download ios" data-app-link="mail" data-platform="ios" target="_blank" rel="noopener">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.56-1.702"/></svg>
+                  <span data-i18n="ios-download">iOS 下载</span>
+                </a>
+              </div>
+              <button class="btn btn-qr" data-open="mail">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>
+                <span data-i18n="qr-btn">查看下载二维码</span>
+              </button>
+            </div>
+            <div class="app-foot">
+              <span data-i18n="app-foot">支持 Android 8.0+ / iOS 13+</span>
+              <span class="app-tag" data-i18n="app-tag">官方渠道</span>
+            </div>
+          </article>
+
+          <!-- BindMeet 会议 -->
+          <article id="meet" class="app-card reveal">
+            <div class="app-head">
+              <div class="app-icon meet">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect width="14" height="12" x="2" y="6" rx="2"/></svg>
+              </div>
+              <div>
+                <h3 class="app-name" data-i18n="meet-name">BindMeet 会议</h3>
+                <p class="app-ver" data-i18n="meet-ver">高清 · 流畅 · 多人视频会议</p>
+              </div>
+            </div>
+            <p class="app-desc" data-i18n="meet-desc">一键发起高清视频会议，屏幕共享、实时字幕与 AI 纪要全程陪伴。智能降噪与弱网自适应，任何网络环境都清晰流畅。</p>
+            <ul class="app-features">
+              <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="meet-f1">高清视频会议 · 支持多人</span></li>
+              <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="meet-f2">屏幕共享 · AI 实时字幕纪要</span></li>
+              <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="meet-f3">智能降噪 · 弱网自适应</span></li>
+            </ul>
+            <div class="app-downloads">
+              <div class="btn-row">
+                <a class="btn btn-download android" data-app-link="meet" data-platform="android" target="_blank" rel="noopener">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592c.2337-.4048.0974-.9188-.3054-1.1534-.4053-.2346-.9186-.0964-1.1524.3056l-2.0138 3.4909c-1.7848-.8142-3.8556-.8142-5.6404 0L8.5528 5.0145c-.2338-.402-.7471-.5401-1.1524-.3056-.4028.2346-.5391.7486-.3054 1.1534l1.9973 3.4592c-1.5398 1.2404-2.5293 3.111-2.5293 5.2005v.022c0 .6434.5204 1.166 1.1633 1.166h11.5482c.643 0 1.1633-.5226 1.1633-1.166v-.022c0-2.0895-.9895-3.9601-2.5292-5.2004"/></svg>
+                  <span data-i18n="android-download">Android 下载</span>
+                </a>
+                <a class="btn btn-download ios" data-app-link="meet" data-platform="ios" target="_blank" rel="noopener">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.56-1.702"/></svg>
+                  <span data-i18n="ios-download">iOS 下载</span>
+                </a>
+              </div>
+              <button class="btn btn-qr" data-open="meet">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>
+                <span data-i18n="qr-btn">查看下载二维码</span>
+              </button>
+            </div>
+            <div class="app-foot">
+              <span data-i18n="app-foot">支持 Android 8.0+ / iOS 13+</span>
+              <span class="app-tag" data-i18n="app-tag">官方渠道</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 产品特性 -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="feat-title">为什么选择 BindOffice</h2>
+          <p data-i18n="feat-sub">企业级安全能力，个人级使用体验</p>
+        </div>
+        <div class="feat-grid">
+          <div class="feat-card reveal">
+            <div class="feat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+            </div>
+            <h3 data-i18n="feat1-title">极速稳定</h3>
+            <p data-i18n="feat1-desc">全球节点加速，邮件秒级送达；会议自适应码率，弱网环境同样清晰流畅。</p>
+          </div>
+          <div class="feat-card reveal">
+            <div class="feat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+            </div>
+            <h3 data-i18n="feat2-title">全端同步</h3>
+            <p data-i18n="feat2-desc">手机、平板、电脑多端实时同步，邮件、会议与日程无缝衔接，随时随地办公。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#top" class="brand" aria-label="BindOffice 首页" data-i18n-attr="aria-label" data-i18n-attr-key="brand-aria">
+          <span class="brand-logo">B</span>
+          <span class="brand-name">Bind<span>Office</span></span>
+        </a>
+        <p data-i18n="footer-tagline">让每一封邮件更快，让每一场会议更清晰。</p>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> BindOffice <span data-i18n="footer-rights">· 保留所有权利</span></span>
+        <span class="footer-version">v1.0.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 二维码弹窗 -->
+  <div class="modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="关闭" data-i18n-attr="aria-label" data-i18n-attr-key="close-aria">×</button>
+      <h3 class="modal-title" id="qrModalTitle">扫码下载</h3>
+      <p class="modal-sub" data-i18n="modal-sub">使用手机相机或扫码工具扫描下载</p>
+      <div class="qr-list">
+        <div class="qr-item">
+          <span class="qr-platform">Android</span>
+          <div class="qr-box" id="qrAndroid"></div>
+          <a class="qr-link" id="qrAndroidLink" data-modal-link="android" target="_blank" rel="noopener"></a>
+          <button class="qr-copy" data-copy="android" data-i18n="copy-btn">复制链接</button>
+        </div>
+        <div class="qr-item">
+          <span class="qr-platform">iOS</span>
+          <div class="qr-box" id="qrIos"></div>
+          <a class="qr-link" id="qrIosLink" data-modal-link="ios" target="_blank" rel="noopener"></a>
+          <button class="qr-copy" data-copy="ios" data-i18n="copy-btn">复制链接</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 本地二维码生成库（已内置，无外部依赖） -->
+  <script src="js/qrcode.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
