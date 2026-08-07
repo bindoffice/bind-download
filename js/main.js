@@ -17,7 +17,7 @@
       ios: "https://apps.apple.com/app/id6788962946"
     },
     meet: {
-      android: "https://static.bindoffice.ltd/bind-meet/bind-meet-3.2.2.apk",
+      android: "https://static.bindoffice.ltd/bind-meet/bind-meet-1.0.2.apk",
       ios: "https://apps.apple.com/app/id6797494502"
     }
   };
