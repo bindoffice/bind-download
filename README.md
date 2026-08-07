@@ -30,11 +30,11 @@ bind-download/
 var DOWNLOAD_LINKS = {
   mail: {                       // BindMail 必得邮箱
     android: "https://play.google.com/store/apps/details?id=com.bindoffice.mail",
-    ios:     "https://apps.apple.com/cn/app/bindoffice-mail/id0000000000"
+    ios:     "https://apps.apple.com/app/id6788962946"
   },
   meet: {                       // BindMeet 必得会议
     android: "https://play.google.com/store/apps/details?id=com.bindoffice.meet",
-    ios:     "https://apps.apple.com/cn/app/bindoffice-meet/id0000000000"
+    ios:     "https://apps.apple.com/app/id6797494502"
   }
 };
 ```

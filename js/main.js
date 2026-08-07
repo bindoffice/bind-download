@@ -14,11 +14,11 @@
   var DOWNLOAD_LINKS = {
     mail: {
       android: "https://static.bindoffice.ltd/bind-mail/bind-mail-1.0.1.apk",
-      ios: "https://apps.apple.com/cn/app/bindoffice-mail/id0000000000"
+      ios: "https://apps.apple.com/app/id6788962946"
     },
     meet: {
       android: "https://static.bindoffice.ltd/bind-meet/bind-meet-3.2.1.apk",
-      ios: "https://apps.apple.com/cn/app/bindoffice-meet/id0000000000"
+      ios: "https://apps.apple.com/app/id6797494502"
     }
   };
 
