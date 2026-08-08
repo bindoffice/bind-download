@@ -13,7 +13,7 @@
   //   ios:     App Store 地址
   var DOWNLOAD_LINKS = {
     mail: {
-      android: "https://static.bindoffice.ltd/bind-mail/bind-mail-1.0.2.apk",
+      android: "https://static.bindoffice.ltd/bind-mail/bind-mail-1.0.3.apk",
       ios: "https://apps.apple.com/app/id6788962946"
     },
     meet: {
