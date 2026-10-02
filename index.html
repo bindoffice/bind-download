@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a1533">
-  <meta name="description" content="BindOffice 官方下载中心 —— 桌面办公、邮箱与高清视频会议应用，支持 Windows、macOS、Android 与 iOS。">
+  <meta name="description" content="BindOffice 官方下载中心 —— 桌面办公、邮箱与高清视频会议应用，支持 Windows、macOS、Linux、Android 与 iOS。">
   <title>BindOffice 下载中心 | 桌面办公、邮箱 &amp; 会议</title>
   <link rel="icon" type="image/png" href="images/logo.png">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -62,7 +62,7 @@
       <div class="container">
         <div class="section-head reveal">
           <h2 data-i18n="sec-apps-title">选择你的应用</h2>
-          <p data-i18n="sec-apps-sub">支持 Windows、macOS、Android 与 iOS，点击按钮即可下载</p>
+          <p data-i18n="sec-apps-sub">支持 Windows、macOS、Linux、Android 与 iOS，点击按钮即可下载</p>
         </div>
 
         <div class="apps-grid">
@@ -74,7 +74,7 @@
                 <img src="images/logo.png" alt="BindOffice" />
               </div>
               <div>
-                <h3 class="app-name" data-i18n="office-name">BindOffice 桌面版</h3>
+                <h3 class="app-name" data-i18n="office-name">BindOffice 必得办公桌面版 · 个人版</h3>
                 <p class="app-ver" data-i18n="office-ver">本地 AI · 文档 · 表格 · 演示</p>
               </div>
             </div>
@@ -86,19 +86,47 @@
             </ul>
             <div class="app-downloads">
               <div class="btn-row desktop-downloads">
-                <a class="btn btn-download desktop primary" data-app-link="office" data-platform="darwin-arm64" target="_blank" rel="noopener">
-                  <span data-i18n="mac-arm-download">macOS（Apple 芯片）</span>
-                </a>
-                <a class="btn btn-download desktop" data-app-link="office" data-platform="darwin-amd64" target="_blank" rel="noopener">
-                  <span data-i18n="mac-intel-download">macOS（Intel）</span>
+                <a class="btn btn-download desktop primary" href="#macosModal" data-open-macos>
+                  <span data-i18n="mac-download">macOS</span>
                 </a>
                 <a class="btn btn-download desktop" data-app-link="office" data-platform="windows-amd64" target="_blank" rel="noopener">
                   <span data-i18n="windows-download">Windows（64 位）</span>
                 </a>
+                <a class="btn btn-download desktop" data-app-link="office" data-platform="linux-amd64" target="_blank" rel="noopener">
+                  <span data-i18n="linux-download">Linux（64 位）</span>
+                </a>
               </div>
             </div>
             <div class="app-foot">
-              <span data-i18n="app-foot-office">版本 0.1.0 · 支持 macOS 13+ / Windows 64 位</span>
+              <span data-i18n="app-foot-office">版本 0.1.0 · 支持 macOS 13+ / Windows 64 位 / Linux 64 位</span>
+              <span class="app-tag" data-i18n="app-tag">官方渠道</span>
+            </div>
+          </article>
+
+          <!-- BindOffice 服务器版 -->
+          <article id="server" class="app-card reveal">
+            <div class="app-head">
+              <div class="app-icon office">
+                <img src="images/logo.png" alt="BindOffice Server" />
+              </div>
+              <div>
+                <h3 class="app-name" data-i18n="server-name">BindOffice 必得办公服务器版 · 团队版</h3>
+                <p class="app-ver" data-i18n="server-ver">Docker · 私有化部署</p>
+              </div>
+            </div>
+            <p class="app-desc" data-i18n="server-desc">通过 Docker 部署 BindOffice 服务端，并查看服务器版安装与配置文档。</p>
+            <div class="app-downloads">
+              <div class="btn-row">
+                <a class="btn btn-download desktop primary" data-app-link="server" data-platform="docker" target="_blank" rel="noopener">
+                  <span data-i18n="docker-download">Docker 部署</span>
+                </a>
+                <a class="btn btn-download desktop" data-app-link="server" data-platform="docs" target="_blank" rel="noopener">
+                  <span data-i18n="server-docs">查看文档</span>
+                </a>
+              </div>
+            </div>
+            <div class="app-foot">
+              <span data-i18n="app-foot-server">支持 Docker 部署</span>
               <span class="app-tag" data-i18n="app-tag">官方渠道</span>
             </div>
           </article>
@@ -261,8 +289,26 @@
     </div>
   </div>
 
+  <!-- macOS 版本选择弹窗 -->
+  <div class="modal" id="macosModal" role="dialog" aria-modal="true" aria-labelledby="macosModalTitle">
+    <a class="modal-backdrop" href="#office" data-close-macos aria-label="关闭"></a>
+    <div class="modal-content">
+      <a class="modal-close" href="#office" data-close-macos aria-label="关闭" data-i18n-attr="aria-label" data-i18n-attr-key="close-aria">×</a>
+      <h3 class="modal-title" id="macosModalTitle" data-i18n="mac-modal-title">选择 macOS 版本</h3>
+      <p class="modal-sub" data-i18n="mac-modal-sub">请根据 Mac 的芯片类型选择下载</p>
+      <div class="platform-modal-actions">
+        <a class="btn btn-download desktop primary" data-app-link="office" data-platform="darwin-arm64" target="_blank" rel="noopener">
+          <span data-i18n="mac-arm-download">Apple 芯片</span>
+        </a>
+        <a class="btn btn-download desktop" data-app-link="office" data-platform="darwin-amd64" target="_blank" rel="noopener">
+          <span data-i18n="mac-intel-download">Intel 芯片</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- 本地二维码生成库（已内置，无外部依赖） -->
   <script src="js/qrcode.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>

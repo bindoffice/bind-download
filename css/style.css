@@ -364,6 +364,7 @@ section[id] { scroll-margin-top: 92px; }
   pointer-events: none;
 }
 .modal.open { visibility: visible; opacity: 1; pointer-events: auto; }
+.modal:target { visibility: visible; opacity: 1; pointer-events: auto; }
 .modal-backdrop {
   position: absolute; inset: 0;
   background: rgba(4, 10, 28, 0.72);
@@ -379,6 +380,7 @@ section[id] { scroll-margin-top: 92px; }
   transition: transform 0.28s ease;
 }
 .modal.open .modal-content { transform: translateY(0) scale(1); }
+.modal:target .modal-content { transform: translateY(0) scale(1); }
 .modal-close {
   position: absolute; top: 14px; right: 14px;
   width: 34px; height: 34px; border-radius: 50%;
@@ -392,6 +394,7 @@ section[id] { scroll-margin-top: 92px; }
 
 .modal-title { text-align: center; font-size: 1.35rem; font-weight: 700; }
 .modal-sub { text-align: center; margin-top: 8px; margin-bottom: 26px; color: var(--text-dim); font-size: 0.9rem; }
+.platform-modal-actions { display: flex; gap: 12px; }
 
 .qr-list { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
 .qr-item { display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 0; }
@@ -429,6 +432,7 @@ section[id] { scroll-margin-top: 92px; }
 .feat-grid .feat-card:nth-child(2) { transition-delay: 0.12s; }
 .apps-grid .app-card:nth-child(3),
 .feat-grid .feat-card:nth-child(3) { transition-delay: 0.24s; }
+.apps-grid .app-card:nth-child(4) { transition-delay: 0.36s; }
 
 /* ---------- 响应式 ---------- */
 @media (max-width: 920px) {
@@ -443,6 +447,7 @@ section[id] { scroll-margin-top: 92px; }
   .lang-switch { margin-left: 0; padding-inline: 12px; }
   .btn-row { flex-direction: column; }
   .btn-download { width: 100%; }
+  .platform-modal-actions { flex-direction: column; }
   .hero { padding: calc(68px + 60px) 0 56px; }
   .section { padding: 72px 0; }
   .qr-list { grid-template-columns: 1fr; }

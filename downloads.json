@@ -1,0 +1,20 @@
+{
+  "office": {
+    "darwin-arm64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-arm64.zip",
+    "darwin-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-amd64.zip",
+    "windows-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-windows-amd64.zip",
+    "linux-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-linux-amd64.zip"
+  },
+  "server": {
+    "docker": "#",
+    "docs": "#"
+  },
+  "mail": {
+    "android": "https://static.bindoffice.ltd/bind-mail/bind-mail-1.0.6.apk",
+    "ios": "https://apps.apple.com/app/id6788962946"
+  },
+  "meet": {
+    "android": "https://static.bindoffice.ltd/bind-meet/bind-meet-1.0.2.apk",
+    "ios": "https://apps.apple.com/app/id6797494502"
+  }
+}

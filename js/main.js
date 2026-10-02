@@ -1,31 +1,13 @@
 /* =====================================================
  * BindOffice 下载中心
- * 1. 修改下载链接：编辑下方 DOWNLOAD_LINKS 配置
+ * 1. 修改下载链接：编辑 downloads.json
  * 2. 修改文案：编辑下方 I18N 中英文翻译字典
  * ===================================================== */
 
 (function () {
   "use strict";
 
-  // ---------------- 下载链接配置 ----------------
-  // 把下面的占位链接替换成你的真实下载地址即可
-  //   android: 应用商店地址或 APK 直链
-  //   ios:     App Store 地址
-  var DOWNLOAD_LINKS = {
-    office: {
-      "darwin-arm64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-arm64.zip",
-      "darwin-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-amd64.zip",
-      "windows-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-windows-amd64.zip"
-    },
-    mail: {
-      android: "https://static.bindoffice.ltd/bind-mail/bind-mail-1.0.6.apk",
-      ios: "https://apps.apple.com/app/id6788962946"
-    },
-    meet: {
-      android: "https://static.bindoffice.ltd/bind-meet/bind-meet-1.0.2.apk",
-      ios: "https://apps.apple.com/app/id6797494502"
-    }
-  };
+  var DOWNLOAD_LINKS = {};
 
   // ---------------- 中英文翻译字典 ----------------
   var I18N = {
@@ -41,13 +23,19 @@
       "hero-download": "立即下载",
       "hero-browse": "浏览应用",
       "sec-apps-title": "选择你的应用",
-      "sec-apps-sub": "支持 Windows、macOS、Android 与 iOS，点击按钮即可下载",
-      "office-name": "BindOffice 桌面版",
+      "sec-apps-sub": "支持 Windows、macOS、Linux、Android 与 iOS，点击按钮即可下载",
+      "office-name": "BindOffice 必得办公桌面版 · 个人版",
       "office-ver": "本地 AI · 文档 · 表格 · 演示",
       "office-desc": "在本地用 AI 新建文档、表格和演示，或打开已有文件。文件始终留在你的电脑上。",
       "office-f1": "本地 AI 辅助创作",
       "office-f2": "文档、表格与演示一站处理",
       "office-f3": "文件保存在本地电脑",
+      "server-name": "BindOffice 必得办公服务器版 · 团队版",
+      "server-ver": "Docker · 私有化部署",
+      "server-desc": "通过 Docker 部署 BindOffice 服务端，并查看服务器版安装与配置文档。",
+      "docker-download": "Docker 部署",
+      "server-docs": "查看文档",
+      "app-foot-server": "支持 Docker 部署",
       "mail-name": "BindMail 必得邮箱",
       "mail-ver": "极速 · 安全 · 智能邮件客户端",
       "mail-desc": "多账号统一管理，智能分类，重要邮件实时提醒。垃圾邮件零打扰，让每一封邮件都更快到达。",
@@ -62,11 +50,15 @@
       "meet-f3": "智能降噪 · 弱网自适应",
       "android-download": "Android 下载",
       "ios-download": "iOS 下载",
-      "mac-arm-download": "macOS（Apple 芯片）",
-      "mac-intel-download": "macOS（Intel）",
+      "mac-download": "macOS",
+      "mac-arm-download": "Apple 芯片",
+      "mac-intel-download": "Intel 芯片",
       "windows-download": "Windows（64 位）",
+      "linux-download": "Linux（64 位）",
+      "mac-modal-title": "选择 macOS 版本",
+      "mac-modal-sub": "请根据 Mac 的芯片类型选择下载",
       "qr-btn": "查看下载二维码",
-      "app-foot-office": "版本 0.1.0 · 支持 macOS 13+ / Windows 64 位",
+      "app-foot-office": "版本 0.1.0 · 支持 macOS 13+ / Windows 64 位 / Linux 64 位",
       "app-foot": "支持 Android 8.0+ / iOS 16+",
       "app-foot-meet": "支持 Android 8.0+ / iOS 15+",
       "app-tag": "官方渠道",
@@ -87,7 +79,7 @@
       "copied": "已复制 ✓",
       "qr-error": "二维码组件加载失败，请直接点击下方链接下载",
       "page-title": "BindOffice 下载中心 | 桌面办公、邮箱 & 会议",
-      "page-desc": "BindOffice 官方下载中心 —— 桌面办公、邮箱与高清视频会议应用，支持 Windows、macOS、Android 与 iOS。",
+      "page-desc": "BindOffice 官方下载中心 —— 桌面办公、邮箱与高清视频会议应用，支持 Windows、macOS、Linux、Android 与 iOS。",
       "brand-aria": "BindOffice 首页",
       "close-aria": "关闭"
     },
@@ -103,13 +95,19 @@
       "hero-download": "Download Now",
       "hero-browse": "Explore Apps",
       "sec-apps-title": "Choose Your App",
-      "sec-apps-sub": "Available on Windows, macOS, Android, and iOS",
-      "office-name": "BindOffice Desktop",
+      "sec-apps-sub": "Available on Windows, macOS, Linux, Android, and iOS",
+      "office-name": "BindOffice Desktop · Personal",
       "office-ver": "Local AI · Documents · Spreadsheets · Presentations",
       "office-desc": "Use local AI to create documents, spreadsheets, and presentations or open existing files. Your files stay on your computer.",
       "office-f1": "Create with local AI",
       "office-f2": "Documents, spreadsheets, and presentations",
       "office-f3": "Files stay on your computer",
+      "server-name": "BindOffice Server · Team",
+      "server-ver": "Docker · Private Deployment",
+      "server-desc": "Deploy BindOffice Server with Docker and view the installation and configuration documentation.",
+      "docker-download": "Deploy with Docker",
+      "server-docs": "View Documentation",
+      "app-foot-server": "Supports Docker deployment",
       "mail-name": "BindMail Mail",
       "mail-ver": "Fast · Secure · Smart Mail Client",
       "mail-desc": "Manage multiple accounts with smart sorting and real-time alerts for important mail. Zero spam interruptions — every email arrives faster.",
@@ -124,11 +122,15 @@
       "meet-f3": "Noise cancellation · Adaptive to weak networks",
       "android-download": "Android Download",
       "ios-download": "iOS Download",
-      "mac-arm-download": "macOS (Apple silicon)",
-      "mac-intel-download": "macOS (Intel)",
+      "mac-download": "macOS",
+      "mac-arm-download": "Apple silicon",
+      "mac-intel-download": "Intel",
       "windows-download": "Windows (64-bit)",
+      "linux-download": "Linux (64-bit)",
+      "mac-modal-title": "Choose a macOS Version",
+      "mac-modal-sub": "Select the download that matches your Mac's chip",
       "qr-btn": "View Download QR Code",
-      "app-foot-office": "Version 0.1.0 · Supports macOS 13+ / 64-bit Windows",
+      "app-foot-office": "Version 0.1.0 · Supports macOS 13+ / 64-bit Windows / 64-bit Linux",
       "app-foot": "Supports Android 8.0+ / iOS 16+",
       "app-foot-meet": "Supports Android 8.0+ / iOS 15+",
       "app-tag": "Official",
@@ -149,7 +151,7 @@
       "copied": "Copied ✓",
       "qr-error": "QR component failed to load. Please tap the link below to download.",
       "page-title": "BindOffice Download Center | Desktop, Mail & Meetings",
-      "page-desc": "BindOffice Official Download Center — desktop productivity, fast email, and HD video meetings for Windows, macOS, Android, and iOS.",
+      "page-desc": "BindOffice Official Download Center — desktop productivity, fast email, and HD video meetings for Windows, macOS, Linux, Android, and iOS.",
       "brand-aria": "BindOffice Home",
       "close-aria": "Close"
     }
@@ -160,6 +162,7 @@
 
   // ---------------- DOM 引用 ----------------
   var modal = document.getElementById("qrModal");
+  var macosModal = document.getElementById("macosModal");
   var qrAndroid = document.getElementById("qrAndroid");
   var qrIos = document.getElementById("qrIos");
   var qrAndroidLink = document.getElementById("qrAndroidLink");
@@ -176,10 +179,10 @@
     if (!btn) return;
     if (currentLang === "zh") {
       btn.textContent = "EN";
-      btn.setAttribute("aria-label", I18N.en["lang-switch-aria"]);
+      btn.setAttribute("aria-label", I18N.zh["lang-switch-aria"]);
     } else {
       btn.textContent = "中文";
-      btn.setAttribute("aria-label", I18N.zh["lang-switch-aria"]);
+      btn.setAttribute("aria-label", I18N.en["lang-switch-aria"]);
     }
   }
 
@@ -235,14 +238,29 @@
     : (browserLang.indexOf("zh") === 0 ? "zh" : "en");
   applyLang(initialLang);
 
-  // ---------------- 卡片下载按钮：填充真实链接 ----------------
-  document.querySelectorAll("[data-app-link]").forEach(function (a) {
-    var links = DOWNLOAD_LINKS[a.getAttribute("data-app-link")];
-    var platform = a.getAttribute("data-platform");
-    if (links && links[platform]) {
-      a.setAttribute("href", links[platform]);
-    }
-  });
+  // ---------------- 下载配置与按钮链接 ----------------
+  function applyDownloadLinks() {
+    document.querySelectorAll("[data-app-link]").forEach(function (a) {
+      var links = DOWNLOAD_LINKS[a.getAttribute("data-app-link")];
+      var platform = a.getAttribute("data-platform");
+      if (links && links[platform]) {
+        a.setAttribute("href", links[platform]);
+      }
+    });
+  }
+
+  fetch("downloads.json", { cache: "no-store" })
+    .then(function (response) {
+      if (!response.ok) throw new Error("downloads.json " + response.status);
+      return response.json();
+    })
+    .then(function (links) {
+      DOWNLOAD_LINKS = links;
+      applyDownloadLinks();
+    })
+    .catch(function (error) {
+      console.error("下载配置读取失败", error);
+    });
 
   // ---------------- 二维码渲染 ----------------
   function renderQr(container, text) {
@@ -300,8 +318,40 @@
     el.addEventListener("click", closeModal);
   });
 
+  function openMacosModal() {
+    macosModal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    var closeBtn = macosModal.querySelector(".modal-close");
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeMacosModal() {
+    macosModal.classList.remove("open");
+    document.body.style.overflow = "";
+    if (window.location.hash === "#macosModal") {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search + "#office");
+    }
+  }
+
+  document.querySelectorAll("[data-open-macos]").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      openMacosModal();
+    });
+  });
+
+  macosModal.querySelectorAll("[data-close-macos]").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      closeMacosModal();
+    });
+  });
+
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeModal();
+    if (e.key === "Escape") {
+      closeModal();
+      closeMacosModal();
+    }
   });
 
   // ---------------- 复制链接 ----------------

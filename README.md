@@ -1,6 +1,6 @@
 # BindOffice 下载中心
 
-BindOffice 官方下载官网 —— 包含 **BindOffice 桌面版**、**邮箱（BindMail）**与**会议（BindMeet）**的下载入口，支持 Windows / macOS / Android / iOS。
+BindOffice 官方下载官网 —— 包含 **BindOffice 桌面版**、**邮箱（BindMail）**与**会议（BindMeet）**的下载入口，支持 Windows / macOS / Linux / Android / iOS。
 
 - 主色：科技蓝 · 辅色：白色
 - 纯 HTML / CSS / JS，无框架、无构建步骤
@@ -14,37 +14,44 @@ BindOffice 官方下载官网 —— 包含 **BindOffice 桌面版**、**邮箱�
 ```
 bind-download/
 ├── index.html          # 页面主体
+├── downloads.json      # 下载链接配置
 ├── css/
 │   └── style.css       # 全部样式（蓝色科技风）
 ├── js/
-│   ├── main.js         # 交互逻辑 + 下载链接配置
+│   ├── main.js         # 页面交互逻辑
 │   └── qrcode.min.js   # 二维码生成库（内置，无需联网）
 └── README.md
 ```
 
 ## 修改下载链接
 
-打开 `js/main.js`，编辑文件顶部的 `DOWNLOAD_LINKS` 配置即可，页面上的按钮、二维码会同步生效：
+直接编辑根目录的 `downloads.json`，页面上的按钮、二维码会自动读取配置，无需修改页面代码：
 
-```js
-var DOWNLOAD_LINKS = {
-  office: {                     // BindOffice 桌面版
+```json
+{
+  "office": {
     "darwin-arm64":  "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-arm64.zip",
     "darwin-amd64":  "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-amd64.zip",
-    "windows-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-windows-amd64.zip"
+    "windows-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-windows-amd64.zip",
+    "linux-amd64":   "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-linux-amd64.zip"
   },
-  mail: {                       // BindMail 必得邮箱
-    android: "https://play.google.com/store/apps/details?id=com.bindoffice.mail",
-    ios:     "https://apps.apple.com/app/id6788962946"
+  "server": {
+    "docker": "https://你的域名/服务器版部署地址",
+    "docs": "https://你的域名/服务器版文档地址"
   },
-  meet: {                       // BindMeet 必得会议
-    android: "https://play.google.com/store/apps/details?id=com.bindoffice.meet",
-    ios:     "https://apps.apple.com/app/id6797494502"
+  "mail": {
+    "android": "https://play.google.com/store/apps/details?id=com.bindoffice.mail",
+    "ios": "https://apps.apple.com/app/id6788962946"
+  },
+  "meet": {
+    "android": "https://play.google.com/store/apps/details?id=com.bindoffice.meet",
+    "ios": "https://apps.apple.com/app/id6797494502"
   }
-};
+}
 ```
 
-- `darwin-arm64` / `darwin-amd64` / `windows-amd64`：BindOffice 桌面版安装包直链
+- `darwin-arm64` / `darwin-amd64` / `windows-amd64` / `linux-amd64`：BindOffice 桌面版安装包直链
+- `docker` / `docs`：BindOffice 服务器版的 Docker 部署地址与文档地址
 - `android`：Google Play 地址，或 APK 直链（如 `https://你的域名/apk/bindmail.apk`）
 - `ios`：App Store 地址
 
