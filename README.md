@@ -1,6 +1,6 @@
 # BindOffice 下载中心
 
-BindOffice 官方下载官网 —— 包含**邮箱（BindMail）**与**会议（BindMeet）**两个应用的下载入口，支持 Android / iOS，点击按钮或扫码即可下载。
+BindOffice 官方下载官网 —— 包含 **BindOffice 桌面版**、**邮箱（BindMail）**与**会议（BindMeet）**的下载入口，支持 Windows / macOS / Android / iOS。
 
 - 主色：科技蓝 · 辅色：白色
 - 纯 HTML / CSS / JS，无框架、无构建步骤
@@ -28,6 +28,11 @@ bind-download/
 
 ```js
 var DOWNLOAD_LINKS = {
+  office: {                     // BindOffice 桌面版
+    "darwin-arm64":  "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-arm64.zip",
+    "darwin-amd64":  "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-amd64.zip",
+    "windows-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-windows-amd64.zip"
+  },
   mail: {                       // BindMail 必得邮箱
     android: "https://play.google.com/store/apps/details?id=com.bindoffice.mail",
     ios:     "https://apps.apple.com/app/id6788962946"
@@ -39,6 +44,7 @@ var DOWNLOAD_LINKS = {
 };
 ```
 
+- `darwin-arm64` / `darwin-amd64` / `windows-amd64`：BindOffice 桌面版安装包直链
 - `android`：Google Play 地址，或 APK 直链（如 `https://你的域名/apk/bindmail.apk`）
 - `ios`：App Store 地址
 

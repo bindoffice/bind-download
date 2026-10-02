@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a1533">
-  <meta name="description" content="BindOffice 官方下载中心 —— 高效邮箱与高清视频会议应用，支持 Android 与 iOS，扫码即刻下载。">
-  <title>BindOffice 下载中心 | 邮箱 &amp; 会议</title>
+  <meta name="description" content="BindOffice 官方下载中心 —— 桌面办公、邮箱与高清视频会议应用，支持 Windows、macOS、Android 与 iOS。">
+  <title>BindOffice 下载中心 | 桌面办公、邮箱 &amp; 会议</title>
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -31,6 +31,7 @@
       </a>
       <nav class="nav" aria-label="主导航">
         <a href="#apps" data-i18n="nav-apps">应用下载</a>
+        <a href="#office" data-i18n="nav-office">桌面版</a>
         <a href="#mail" data-i18n="nav-mail">邮箱</a>
         <a href="#meet" data-i18n="nav-meet">会议</a>
         <button class="lang-switch" id="langSwitch" type="button" aria-label="切换到英文">EN</button>
@@ -45,7 +46,7 @@
       <div class="container">
         <p class="hero-badge"><span class="badge-dot"></span><span data-i18n="hero-badge">官方下载中心 · 安全快速</span></p>
         <h1 class="hero-title" data-i18n="hero-title" data-i18n-html>高效办公，从 <span class="gradient-text">BindOffice</span> 开始</h1>
-        <p class="hero-sub" data-i18n="hero-sub" data-i18n-html>一个账号，邮箱与会议一站式搞定。<br>极速收发、高清音视频，让团队协作更简单。</p>
+        <p class="hero-sub" data-i18n="hero-sub" data-i18n-html>桌面办公、邮箱与会议一站式搞定。<br>本地 AI、高效收发、高清音视频，让团队协作更简单。</p>
         <div class="hero-actions">
           <a href="#apps" class="btn btn-primary">
             <span data-i18n="hero-download">立即下载</span>
@@ -61,10 +62,46 @@
       <div class="container">
         <div class="section-head reveal">
           <h2 data-i18n="sec-apps-title">选择你的应用</h2>
-          <p data-i18n="sec-apps-sub">支持 Android 与 iOS，扫码或点击按钮即可下载</p>
+          <p data-i18n="sec-apps-sub">支持 Windows、macOS、Android 与 iOS，点击按钮即可下载</p>
         </div>
 
         <div class="apps-grid">
+
+          <!-- BindOffice 桌面版 -->
+          <article id="office" class="app-card reveal">
+            <div class="app-head">
+              <div class="app-icon office">
+                <img src="images/logo.png" alt="BindOffice" />
+              </div>
+              <div>
+                <h3 class="app-name" data-i18n="office-name">BindOffice 桌面版</h3>
+                <p class="app-ver" data-i18n="office-ver">本地 AI · 文档 · 表格 · 演示</p>
+              </div>
+            </div>
+            <p class="app-desc" data-i18n="office-desc">在本地用 AI 新建文档、表格和演示，或打开已有文件。文件始终留在你的电脑上。</p>
+            <ul class="app-features">
+              <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="office-f1">本地 AI 辅助创作</span></li>
+              <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="office-f2">文档、表格与演示一站处理</span></li>
+              <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="office-f3">文件保存在本地电脑</span></li>
+            </ul>
+            <div class="app-downloads">
+              <div class="btn-row desktop-downloads">
+                <a class="btn btn-download desktop primary" data-app-link="office" data-platform="darwin-arm64" target="_blank" rel="noopener">
+                  <span data-i18n="mac-arm-download">macOS（Apple 芯片）</span>
+                </a>
+                <a class="btn btn-download desktop" data-app-link="office" data-platform="darwin-amd64" target="_blank" rel="noopener">
+                  <span data-i18n="mac-intel-download">macOS（Intel）</span>
+                </a>
+                <a class="btn btn-download desktop" data-app-link="office" data-platform="windows-amd64" target="_blank" rel="noopener">
+                  <span data-i18n="windows-download">Windows（64 位）</span>
+                </a>
+              </div>
+            </div>
+            <div class="app-foot">
+              <span data-i18n="app-foot-office">版本 0.1.0 · 支持 macOS 13+ / Windows 64 位</span>
+              <span class="app-tag" data-i18n="app-tag">官方渠道</span>
+            </div>
+          </article>
 
           <!-- BindMail 必得邮箱 -->
           <article id="mail" class="app-card reveal">

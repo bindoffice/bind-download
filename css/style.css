@@ -278,6 +278,17 @@ section[id] { scroll-margin-top: 92px; }
 .btn-download.android:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(37, 99, 235, 0.95); }
 .btn-download.ios { background: rgba(255, 255, 255, 0.09); border: 1px solid rgba(255, 255, 255, 0.22); color: #fff; }
 .btn-download.ios:hover { background: rgba(255, 255, 255, 0.16); transform: translateY(-2px); }
+.btn-download.desktop { background: rgba(255, 255, 255, 0.09); border: 1px solid rgba(255, 255, 255, 0.22); color: #fff; }
+.btn-download.desktop.primary {
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+  border-color: transparent;
+  box-shadow: 0 8px 22px -8px rgba(37, 99, 235, 0.8);
+}
+.btn-download.desktop:hover { background: rgba(255, 255, 255, 0.16); transform: translateY(-2px); }
+.btn-download.desktop.primary:hover {
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+  box-shadow: 0 14px 30px -8px rgba(37, 99, 235, 0.95);
+}
 
 .btn-qr {
   width: 100%; padding: 13px; border-radius: 14px;
@@ -416,6 +427,7 @@ section[id] { scroll-margin-top: 92px; }
 .reveal.visible { opacity: 1; transform: none; }
 .apps-grid .app-card:nth-child(2),
 .feat-grid .feat-card:nth-child(2) { transition-delay: 0.12s; }
+.apps-grid .app-card:nth-child(3),
 .feat-grid .feat-card:nth-child(3) { transition-delay: 0.24s; }
 
 /* ---------- 响应式 ---------- */
@@ -425,8 +437,10 @@ section[id] { scroll-margin-top: 92px; }
 }
 
 @media (max-width: 640px) {
-  .nav { gap: 16px; }
+  .nav { gap: 12px; }
+  .nav a:first-child { display: none; }
   .nav a { font-size: 0.88rem; }
+  .lang-switch { margin-left: 0; padding-inline: 12px; }
   .btn-row { flex-direction: column; }
   .btn-download { width: 100%; }
   .hero { padding: calc(68px + 60px) 0 56px; }

@@ -12,6 +12,11 @@
   //   android: 应用商店地址或 APK 直链
   //   ios:     App Store 地址
   var DOWNLOAD_LINKS = {
+    office: {
+      "darwin-arm64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-arm64.zip",
+      "darwin-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-amd64.zip",
+      "windows-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-windows-amd64.zip"
+    },
     mail: {
       android: "https://static.bindoffice.ltd/bind-mail/bind-mail-1.0.6.apk",
       ios: "https://apps.apple.com/app/id6788962946"
@@ -26,16 +31,23 @@
   var I18N = {
     zh: {
       "nav-apps": "应用下载",
+      "nav-office": "桌面版",
       "nav-mail": "邮箱",
       "nav-meet": "会议",
       "lang-switch-aria": "切换到英文",
       "hero-badge": "官方下载中心 · 安全快速",
       "hero-title": "高效办公，从 <span class=\"gradient-text\">BindOffice</span> 开始",
-      "hero-sub": "一个账号，邮箱与会议一站式搞定。<br>极速收发、高清音视频，让团队协作更简单。",
+      "hero-sub": "桌面办公、邮箱与会议一站式搞定。<br>本地 AI、高效收发、高清音视频，让团队协作更简单。",
       "hero-download": "立即下载",
       "hero-browse": "浏览应用",
       "sec-apps-title": "选择你的应用",
-      "sec-apps-sub": "支持 Android 与 iOS，扫码或点击按钮即可下载",
+      "sec-apps-sub": "支持 Windows、macOS、Android 与 iOS，点击按钮即可下载",
+      "office-name": "BindOffice 桌面版",
+      "office-ver": "本地 AI · 文档 · 表格 · 演示",
+      "office-desc": "在本地用 AI 新建文档、表格和演示，或打开已有文件。文件始终留在你的电脑上。",
+      "office-f1": "本地 AI 辅助创作",
+      "office-f2": "文档、表格与演示一站处理",
+      "office-f3": "文件保存在本地电脑",
       "mail-name": "BindMail 必得邮箱",
       "mail-ver": "极速 · 安全 · 智能邮件客户端",
       "mail-desc": "多账号统一管理，智能分类，重要邮件实时提醒。垃圾邮件零打扰，让每一封邮件都更快到达。",
@@ -50,7 +62,11 @@
       "meet-f3": "智能降噪 · 弱网自适应",
       "android-download": "Android 下载",
       "ios-download": "iOS 下载",
+      "mac-arm-download": "macOS（Apple 芯片）",
+      "mac-intel-download": "macOS（Intel）",
+      "windows-download": "Windows（64 位）",
       "qr-btn": "查看下载二维码",
+      "app-foot-office": "版本 0.1.0 · 支持 macOS 13+ / Windows 64 位",
       "app-foot": "支持 Android 8.0+ / iOS 16+",
       "app-foot-meet": "支持 Android 8.0+ / iOS 15+",
       "app-tag": "官方渠道",
@@ -70,23 +86,30 @@
       "copy-btn": "复制链接",
       "copied": "已复制 ✓",
       "qr-error": "二维码组件加载失败，请直接点击下方链接下载",
-      "page-title": "BindOffice 下载中心 | 邮箱 & 会议",
-      "page-desc": "BindOffice 官方下载中心 —— 高效邮箱与高清视频会议应用，支持 Android 与 iOS，扫码即刻下载。",
+      "page-title": "BindOffice 下载中心 | 桌面办公、邮箱 & 会议",
+      "page-desc": "BindOffice 官方下载中心 —— 桌面办公、邮箱与高清视频会议应用，支持 Windows、macOS、Android 与 iOS。",
       "brand-aria": "BindOffice 首页",
       "close-aria": "关闭"
     },
     en: {
       "nav-apps": "Downloads",
+      "nav-office": "Desktop",
       "nav-mail": "Mail",
       "nav-meet": "Meetings",
       "lang-switch-aria": "Switch to Chinese",
       "hero-badge": "Official Download Center · Safe & Fast",
       "hero-title": "Work smarter with <span class=\"gradient-text\">BindOffice</span>",
-      "hero-sub": "One account for mail and meetings.<br>Fast delivery, HD audio & video — simpler teamwork.",
+      "hero-sub": "Desktop productivity, mail, and meetings in one place.<br>Local AI, fast delivery, and HD audio & video for simpler teamwork.",
       "hero-download": "Download Now",
       "hero-browse": "Explore Apps",
       "sec-apps-title": "Choose Your App",
-      "sec-apps-sub": "Available on Android & iOS — scan the QR code or tap to download",
+      "sec-apps-sub": "Available on Windows, macOS, Android, and iOS",
+      "office-name": "BindOffice Desktop",
+      "office-ver": "Local AI · Documents · Spreadsheets · Presentations",
+      "office-desc": "Use local AI to create documents, spreadsheets, and presentations or open existing files. Your files stay on your computer.",
+      "office-f1": "Create with local AI",
+      "office-f2": "Documents, spreadsheets, and presentations",
+      "office-f3": "Files stay on your computer",
       "mail-name": "BindMail Mail",
       "mail-ver": "Fast · Secure · Smart Mail Client",
       "mail-desc": "Manage multiple accounts with smart sorting and real-time alerts for important mail. Zero spam interruptions — every email arrives faster.",
@@ -101,7 +124,11 @@
       "meet-f3": "Noise cancellation · Adaptive to weak networks",
       "android-download": "Android Download",
       "ios-download": "iOS Download",
+      "mac-arm-download": "macOS (Apple silicon)",
+      "mac-intel-download": "macOS (Intel)",
+      "windows-download": "Windows (64-bit)",
       "qr-btn": "View Download QR Code",
+      "app-foot-office": "Version 0.1.0 · Supports macOS 13+ / 64-bit Windows",
       "app-foot": "Supports Android 8.0+ / iOS 16+",
       "app-foot-meet": "Supports Android 8.0+ / iOS 15+",
       "app-tag": "Official",
@@ -121,8 +148,8 @@
       "copy-btn": "Copy Link",
       "copied": "Copied ✓",
       "qr-error": "QR component failed to load. Please tap the link below to download.",
-      "page-title": "BindOffice Download Center | Mail & Meetings",
-      "page-desc": "BindOffice Official Download Center — fast email and HD video meeting apps for Android and iOS. Scan to download.",
+      "page-title": "BindOffice Download Center | Desktop, Mail & Meetings",
+      "page-desc": "BindOffice Official Download Center — desktop productivity, fast email, and HD video meetings for Windows, macOS, Android, and iOS.",
       "brand-aria": "BindOffice Home",
       "close-aria": "Close"
     }
@@ -315,7 +342,7 @@
   var header = document.getElementById("siteHeader");
   var progressBar = document.getElementById("progressBar");
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
-  var spyIds = ["apps", "mail", "meet"];
+  var spyIds = ["apps", "office", "mail", "meet"];
 
   function onScroll() {
     var doc = document.documentElement;
