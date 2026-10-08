@@ -1,161 +1,13 @@
 /* =====================================================
  * BindOffice 下载中心
  * 1. 修改下载链接：编辑 downloads.json
- * 2. 修改文案：编辑下方 I18N 中英文翻译字典
+ * 2. 修改文案：编辑 js/i18n.js
  * ===================================================== */
 
 (function () {
   "use strict";
 
   var DOWNLOAD_LINKS = {};
-
-  // ---------------- 中英文翻译字典 ----------------
-  var I18N = {
-    zh: {
-      "nav-apps": "应用下载",
-      "nav-office": "桌面版",
-      "nav-mail": "邮箱",
-      "nav-meet": "会议",
-      "lang-switch-aria": "切换到英文",
-      "hero-badge": "官方下载中心 · 安全快速",
-      "hero-title": "高效办公，从 <span class=\"gradient-text\">BindOffice</span> 开始",
-      "hero-sub": "桌面办公、邮箱与会议一站式搞定。<br>本地 AI、高效收发、高清音视频，让团队协作更简单。",
-      "hero-download": "立即下载",
-      "hero-browse": "浏览应用",
-      "sec-apps-title": "选择你的应用",
-      "sec-apps-sub": "支持 Windows、macOS、Linux、Android 与 iOS，点击按钮即可下载",
-      "office-name": "BindOffice 必得办公桌面版 · 个人版",
-      "office-ver": "本地 AI · 文档 · 表格 · 演示",
-      "office-desc": "在本地用 AI 新建文档、表格和演示，或打开已有文件。文件始终留在你的电脑上。",
-      "office-f1": "本地 AI 辅助创作",
-      "office-f2": "文档、表格与演示一站处理",
-      "office-f3": "文件保存在本地电脑",
-      "server-name": "BindOffice 必得办公服务器版 · 团队版",
-      "server-ver": "Docker · 私有化部署",
-      "server-desc": "通过 Docker 部署 BindOffice 服务端，并查看服务器版安装与配置文档。",
-      "docker-download": "Docker 部署",
-      "server-docs": "查看文档",
-      "app-foot-server": "支持 Docker 部署",
-      "mail-name": "BindMail 必得邮箱",
-      "mail-ver": "极速 · 安全 · 智能邮件客户端",
-      "mail-desc": "多账号统一管理，智能分类，重要邮件实时提醒。垃圾邮件零打扰，让每一封邮件都更快到达。",
-      "mail-f1": "多账号聚合 · 一键切换",
-      "mail-f2": "智能分类 · 重要邮件提醒",
-      "mail-f3": "智能垃圾过滤 · 零打扰",
-      "meet-name": "BindMeet 必得会议",
-      "meet-ver": "高清 · 流畅 · 多人视频会议",
-      "meet-desc": "一键发起高清视频会议，通过链接快速邀请参会。智能降噪与弱网自适应，任何网络环境都清晰流畅。",
-      "meet-f1": "高清视频会议 · 支持多人",
-      "meet-f2": "一键入会 · 链接邀请",
-      "meet-f3": "智能降噪 · 弱网自适应",
-      "android-download": "Android 下载",
-      "ios-download": "iOS 下载",
-      "mac-download": "macOS",
-      "mac-arm-download": "Apple 芯片",
-      "mac-intel-download": "Intel 芯片",
-      "windows-download": "Windows（64 位）",
-      "linux-download": "Linux（64 位）",
-      "mac-modal-title": "选择 macOS 版本",
-      "mac-modal-sub": "请根据 Mac 的芯片类型选择下载",
-      "qr-btn": "查看下载二维码",
-      "app-foot-office": "版本 0.1.0 · 支持 macOS 13+ / Windows 64 位 / Linux 64 位",
-      "app-foot": "支持 Android 8.0+ / iOS 16+",
-      "app-foot-meet": "支持 Android 8.0+ / iOS 15+",
-      "app-tag": "官方渠道",
-      "feat-title": "为什么选择 BindOffice",
-      "feat-sub": "企业级安全能力，个人级使用体验",
-      "feat-deploy-title": "私有化部署",
-      "feat-deploy-desc": "应用直连自建服务器，数据全程留在企业内网，安全可控，不依赖第三方云服务。",
-      "feat1-title": "极速稳定",
-      "feat1-desc": "企业内网直连，邮件秒级送达；会议自适应码率，弱网环境同样清晰流畅。",
-      "feat2-title": "全端同步",
-      "feat2-desc": "手机、平板、电脑多端实时同步，邮件、会议与日程无缝衔接，随时随地办公。",
-      "footer-tagline": "让每一封邮件更快，让每一场会议更清晰。",
-      "footer-rights": "· 保留所有权利",
-      "modal-title-mail": "扫码下载 BindMail 必得邮箱",
-      "modal-title-meet": "扫码下载 BindMeet 必得会议",
-      "modal-sub": "使用手机相机或扫码工具扫描下载",
-      "copy-btn": "复制链接",
-      "copied": "已复制 ✓",
-      "qr-error": "二维码组件加载失败，请直接点击下方链接下载",
-      "page-title": "BindOffice 下载中心 | 桌面办公、邮箱 & 会议",
-      "page-desc": "BindOffice 官方下载中心 —— 桌面办公、邮箱与高清视频会议应用，支持 Windows、macOS、Linux、Android 与 iOS。",
-      "brand-aria": "BindOffice 首页",
-      "close-aria": "关闭"
-    },
-    en: {
-      "nav-apps": "Downloads",
-      "nav-office": "Desktop",
-      "nav-mail": "Mail",
-      "nav-meet": "Meetings",
-      "lang-switch-aria": "Switch to Chinese",
-      "hero-badge": "Official Download Center · Safe & Fast",
-      "hero-title": "Work smarter with <span class=\"gradient-text\">BindOffice</span>",
-      "hero-sub": "Desktop productivity, mail, and meetings in one place.<br>Local AI, fast delivery, and HD audio & video for simpler teamwork.",
-      "hero-download": "Download Now",
-      "hero-browse": "Explore Apps",
-      "sec-apps-title": "Choose Your App",
-      "sec-apps-sub": "Available on Windows, macOS, Linux, Android, and iOS",
-      "office-name": "BindOffice Desktop · Personal",
-      "office-ver": "Local AI · Documents · Spreadsheets · Presentations",
-      "office-desc": "Use local AI to create documents, spreadsheets, and presentations or open existing files. Your files stay on your computer.",
-      "office-f1": "Create with local AI",
-      "office-f2": "Documents, spreadsheets, and presentations",
-      "office-f3": "Files stay on your computer",
-      "server-name": "BindOffice Server · Team",
-      "server-ver": "Docker · Private Deployment",
-      "server-desc": "Deploy BindOffice Server with Docker and view the installation and configuration documentation.",
-      "docker-download": "Deploy with Docker",
-      "server-docs": "View Documentation",
-      "app-foot-server": "Supports Docker deployment",
-      "mail-name": "BindMail Mail",
-      "mail-ver": "Fast · Secure · Smart Mail Client",
-      "mail-desc": "Manage multiple accounts with smart sorting and real-time alerts for important mail. Zero spam interruptions — every email arrives faster.",
-      "mail-f1": "Multiple accounts · One-tap switch",
-      "mail-f2": "Smart sorting · Important mail alerts",
-      "mail-f3": "Smart spam filter · Zero interruption",
-      "meet-name": "BindMeet Meetings",
-      "meet-ver": "HD · Smooth · Multi-party Video",
-      "meet-desc": "Start HD video meetings in one tap and invite participants with a simple link. Smart noise cancellation and adaptive bitrate keep you clear on any network.",
-      "meet-f1": "HD video meetings · Multi-party",
-      "meet-f2": "One-tap join · Link invite",
-      "meet-f3": "Noise cancellation · Adaptive to weak networks",
-      "android-download": "Android Download",
-      "ios-download": "iOS Download",
-      "mac-download": "macOS",
-      "mac-arm-download": "Apple silicon",
-      "mac-intel-download": "Intel",
-      "windows-download": "Windows (64-bit)",
-      "linux-download": "Linux (64-bit)",
-      "mac-modal-title": "Choose a macOS Version",
-      "mac-modal-sub": "Select the download that matches your Mac's chip",
-      "qr-btn": "View Download QR Code",
-      "app-foot-office": "Version 0.1.0 · Supports macOS 13+ / 64-bit Windows / 64-bit Linux",
-      "app-foot": "Supports Android 8.0+ / iOS 16+",
-      "app-foot-meet": "Supports Android 8.0+ / iOS 15+",
-      "app-tag": "Official",
-      "feat-title": "Why BindOffice",
-      "feat-sub": "Enterprise-grade reliability, consumer-grade experience",
-      "feat-deploy-title": "Private Deployment",
-      "feat-deploy-desc": "Apps connect directly to your self-hosted servers. Data stays within your enterprise network — secure, controllable, no third-party cloud dependency.",
-      "feat1-title": "Fast & Stable",
-      "feat1-desc": "Direct intranet connection delivers email in seconds; adaptive bitrate keeps meetings smooth even on weak networks.",
-      "feat2-title": "Sync Everywhere",
-      "feat2-desc": "Real-time sync across phone, tablet, and desktop. Mail, meetings, and schedules stay perfectly in sync.",
-      "footer-tagline": "Faster emails, clearer meetings.",
-      "footer-rights": "· All rights reserved",
-      "modal-title-mail": "Scan to download BindMail Mail",
-      "modal-title-meet": "Scan to download BindMeet Meetings",
-      "modal-sub": "Scan with your phone camera or any QR tool to download",
-      "copy-btn": "Copy Link",
-      "copied": "Copied ✓",
-      "qr-error": "QR component failed to load. Please tap the link below to download.",
-      "page-title": "BindOffice Download Center | Desktop, Mail & Meetings",
-      "page-desc": "BindOffice Official Download Center — desktop productivity, fast email, and HD video meetings for Windows, macOS, Linux, Android, and iOS.",
-      "brand-aria": "BindOffice Home",
-      "close-aria": "Close"
-    }
-  };
 
   // ---------------- 状态 ----------------
   var currentLang = "zh";
@@ -174,21 +26,52 @@
   }
 
   // ---------------- 语言切换 ----------------
+
+  function langMeta(code) {
+    for (var i = 0; i < LANGS.length; i++) {
+      if (LANGS[i].code === code) return LANGS[i];
+    }
+    return LANGS[0];
+  }
+
+  function closeLangMenu() {
+    var list = document.getElementById("langList");
+    var btn = document.getElementById("langSwitch");
+    if (list) list.hidden = true;
+    if (btn) btn.setAttribute("aria-expanded", "false");
+  }
+
   function updateLangSwitcher() {
     var btn = document.getElementById("langSwitch");
-    if (!btn) return;
-    if (currentLang === "zh") {
-      btn.textContent = "EN";
-      btn.setAttribute("aria-label", I18N.zh["lang-switch-aria"]);
-    } else {
-      btn.textContent = "中文";
-      btn.setAttribute("aria-label", I18N.en["lang-switch-aria"]);
-    }
+    var list = document.getElementById("langList");
+    if (!btn || !list) return;
+    var meta = langMeta(currentLang);
+    btn.textContent = meta.label;
+    btn.setAttribute("aria-label", t("lang-switch-aria"));
+    list.innerHTML = "";
+    LANGS.forEach(function (item) {
+      var li = document.createElement("li");
+      var option = document.createElement("button");
+      option.type = "button";
+      option.setAttribute("role", "option");
+      option.setAttribute("aria-selected", item.code === currentLang ? "true" : "false");
+      option.textContent = item.label;
+      option.addEventListener("click", function (e) {
+        e.stopPropagation();
+        applyLang(item.code);
+        closeLangMenu();
+      });
+      li.appendChild(option);
+      list.appendChild(li);
+    });
   }
 
   function applyLang(lang) {
-    currentLang = lang === "en" ? "en" : "zh";
-    document.documentElement.lang = currentLang === "zh" ? "zh-CN" : "en";
+    if (!I18N[lang]) lang = "zh";
+    currentLang = lang;
+    var meta = langMeta(currentLang);
+    document.documentElement.lang = meta.htmlLang;
+    document.documentElement.dir = meta.dir;
     document.title = t("page-title");
 
     var metaDesc = document.querySelector('meta[name="description"]');
@@ -222,9 +105,29 @@
 
   var langSwitchBtn = document.getElementById("langSwitch");
   if (langSwitchBtn) {
-    langSwitchBtn.addEventListener("click", function () {
-      applyLang(currentLang === "zh" ? "en" : "zh");
+    langSwitchBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var list = document.getElementById("langList");
+      if (!list) return;
+      var open = list.hidden;
+      list.hidden = !open;
+      langSwitchBtn.setAttribute("aria-expanded", open ? "true" : "false");
     });
+  }
+  document.addEventListener("click", function (e) {
+    var menu = document.querySelector(".lang-menu");
+    if (menu && !menu.contains(e.target)) closeLangMenu();
+  });
+
+  function matchLang(tag) {
+    var value = (tag || "").toLowerCase().replace("_", "-");
+    if (!value) return null;
+    if (value === "zh-hant" || value.indexOf("zh-tw") === 0 || value.indexOf("zh-hk") === 0 || value.indexOf("zh-mo") === 0) {
+      return "zh-Hant";
+    }
+    if (value.indexOf("zh") === 0) return "zh";
+    var prefix = value.split("-")[0];
+    return I18N[prefix] ? prefix : null;
   }
 
   // 初始语言：localStorage 优先，其次浏览器语言
@@ -232,11 +135,8 @@
   try {
     savedLang = localStorage.getItem("bindoffice-lang");
   } catch (e) {}
-  var browserLang = (navigator.language || navigator.userLanguage || "zh").toLowerCase();
-  var initialLang = savedLang === "zh" || savedLang === "en"
-    ? savedLang
-    : (browserLang.indexOf("zh") === 0 ? "zh" : "en");
-  applyLang(initialLang);
+  var browserLang = navigator.language || navigator.userLanguage || "zh";
+  applyLang(matchLang(savedLang) || matchLang(browserLang) || "en");
 
   // ---------------- 下载配置与按钮链接 ----------------
   function applyDownloadLinks() {
@@ -349,6 +249,7 @@
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
+      closeLangMenu();
       closeModal();
       closeMacosModal();
     }
@@ -392,7 +293,7 @@
   var header = document.getElementById("siteHeader");
   var progressBar = document.getElementById("progressBar");
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
-  var spyIds = ["apps", "office", "mail", "meet"];
+  var spyIds = ["apps", "office", "server", "mail", "meet"];
 
   function onScroll() {
     var doc = document.documentElement;
