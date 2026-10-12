@@ -1,13 +1,13 @@
 {
   "office": {
-    "darwin-arm64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-arm64.zip",
-    "darwin-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-amd64.zip",
-    "windows-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-windows-amd64.zip",
-    "linux-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-linux-amd64.zip"
+    "darwin-arm64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-1.0.0-darwin-arm64.zip",
+    "darwin-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-1.0.0-darwin-amd64.zip",
+    "windows-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-1.0.0-windows-amd64.zip",
+    "linux-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-1.0.0-linux-amd64.tar.gz"
   },
   "server": {
-    "docker": "#",
-    "docs": "#"
+    "docker": "https://github.com/bindoffice/bind-docker",
+    "docs": "https://bindoffice.github.io/documentation/"
   },
   "mail": {
     "android": "https://static.bindoffice.ltd/bind-mail/bind-mail-1.0.6.apk",

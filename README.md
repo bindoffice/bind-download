@@ -30,13 +30,13 @@ bind-download/
 ```json
 {
   "office": {
-    "darwin-arm64":  "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-arm64.zip",
-    "darwin-amd64":  "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-darwin-amd64.zip",
-    "windows-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-windows-amd64.zip",
-    "linux-amd64":   "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-0.1.0-linux-amd64.zip"
+    "darwin-arm64":  "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-1.0.0-darwin-arm64.zip",
+    "darwin-amd64":  "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-1.0.0-darwin-amd64.zip",
+    "windows-amd64": "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-1.0.0-windows-amd64.zip",
+    "linux-amd64":   "https://static.bindoffice.ltd/bindoffice-desk/BindOffice-1.0.0-linux-amd64.tar.gz"
   },
   "server": {
-    "docker": "https://你的域名/服务器版部署地址",
+    "docker": "https://github.com/bindoffice/bind-docker",
     "docs": "https://你的域名/服务器版文档地址"
   },
   "mail": {
